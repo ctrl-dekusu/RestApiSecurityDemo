@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * REST controller providing a basic test endpoint.
  */
 @RestController 
-@RequestMapping("/test")
+@RequestMapping("/")
 public class DemoRestController {
 
     /**
@@ -16,7 +16,7 @@ public class DemoRestController {
      *
      * @return a {@code "Hello World!"} greeting string
      */
-    @GetMapping("/hello")
+    @GetMapping("/")
     public String sayHello() {
         return "Hello World!";
     }
