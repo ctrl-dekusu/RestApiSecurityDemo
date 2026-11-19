@@ -3,10 +3,9 @@ package com.spring.spring_rest.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.naming.AuthenticationException;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -35,7 +34,7 @@ public class StudentExceptionHandler {
   ) {
     StudentErrorResponse err = new StudentErrorResponse();
 
-    err.setTimeStamp(HttpStatus.NOT_FOUND.value());
+    err.setStatus(HttpStatus.NOT_FOUND.value());
     err.setMessage(ex.getMessage());
     err.setTimeStamp(System.currentTimeMillis());
 
