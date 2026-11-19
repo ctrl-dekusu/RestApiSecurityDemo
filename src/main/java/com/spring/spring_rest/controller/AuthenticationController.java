@@ -148,6 +148,6 @@ public class AuthenticationController {
     );
     SecurityContextHolder.getContext().setAuthentication(authenticate);
 
-    return new ResponseEntity<>("Sign in successfully!", HttpStatus.OK);
+    return new ResponseEntity<>("Signed in successfully!", HttpStatus.OK);
   }
 }

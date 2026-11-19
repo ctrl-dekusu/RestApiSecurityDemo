@@ -3,6 +3,8 @@ package com.spring.spring_rest.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.naming.AuthenticationException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -81,4 +83,23 @@ public class StudentExceptionHandler {
 
     return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
   }
+
+  /**
+   * Handles unauthorized response when authentication fails.
+   *
+   * @param ex the thrown {@link MethodArgumentNotValidException}
+   * @return a {@link ResponseEntity} containing a map of field names to 
+   * validation error messages
+   */
+  @ExceptionHandler(AuthenticationException.class)
+  public ResponseEntity<StudentErrorResponse> handleAuthenticationException(
+    AuthenticationException ex
+  ) {
+    StudentErrorResponse err = new StudentErrorResponse();
+    err.setStatus(HttpStatus.UNAUTHORIZED.value());
+    err.setMessage("Username or password is incorrect");
+    err.setTimeStamp(System.currentTimeMillis());
+
+    return new ResponseEntity<>(err, HttpStatus.UNAUTHORIZED);
+  }  
 }

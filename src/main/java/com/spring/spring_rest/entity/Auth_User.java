@@ -60,7 +60,11 @@ public class Auth_User {
    * @param password the user's encoded password
    * @param roles the list of {@link Auth_Role} entities assigned to the user
    */
-  public Auth_User(Long id, String username, String password, List<Auth_Role> roles) {
+  public Auth_User(
+    Long id, String username, 
+    String password, 
+    List<Auth_Role> roles
+  ) {
     this.id = id;
     this.username = username;
     this.password = password;
